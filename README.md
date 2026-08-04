@@ -173,6 +173,16 @@ collected 17 items
 ```
 
 ---
+## Screenshots
+
+### Project Structure
+![Project Structure](screenshots/project-structure.png)
+
+### Test Execution
+![Test Execution](screenshots/test-results.png)
+
+### HTML Report
+![HTML Report](screenshots/html-report.png)
 
 ## Reports
 
