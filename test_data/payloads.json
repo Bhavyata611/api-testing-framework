@@ -1,0 +1,20 @@
+{
+  "valid_post": {
+    "title": "QA Framework",
+    "body": "Testing REST API",
+    "userId": 1
+  },
+
+  "updated_post": {
+    "id": 1,
+    "title": "Updated Title",
+    "body": "Updated Body",
+    "userId": 1
+  },
+
+  "patch_post": {
+    "title": "Patched Title"
+  },
+
+  "empty_payload": {}
+}

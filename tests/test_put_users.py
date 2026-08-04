@@ -1,11 +1,11 @@
+import json
+
+with open("test_data/payloads.json", "r") as file:
+    payloads = json.load(file)
+
 
 def test_update_post(api_client):
-    payload = {
-        "id": 1,
-        "title": "Updated Title",
-        "body": "Updated Body",
-        "userId": 1
-    }
+    payload = payloads["updated_post"]
 
     response = api_client.put("/posts/1", payload)
 
@@ -20,3 +20,16 @@ def test_update_post(api_client):
     assert data["userId"] == payload["userId"]
 
     assert response.elapsed.total_seconds() < 5
+
+
+def test_put_response_contains_required_fields(api_client):
+    payload = payloads["updated_post"]
+
+    response = api_client.put("/posts/1", payload)
+
+    data = response.json()
+
+    required_fields = ["id", "title", "body", "userId"]
+
+    for field in required_fields:
+        assert field in data

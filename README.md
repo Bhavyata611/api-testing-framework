@@ -1,12 +1,14 @@
 # API Testing Automation Framework
 
-A reusable API Testing Automation Framework built using **Python**, **Requests**, and **Pytest** to automate REST API testing. The framework validates API functionality, response data, response time, headers, and JSON schema while generating HTML reports for test execution.
+## Overview
+
+A reusable API Testing Automation Framework built using **Python**, **Requests**, and **Pytest** to automate REST API testing. The framework validates REST API functionality through status codes, response headers, response body, response time, and JSON Schema validation. It follows a modular and maintainable structure using reusable utilities, fixtures, and external test data.
 
 ---
 
 ## Technologies Used
 
-- Python 3.14
+- Python
 - Requests
 - Pytest
 - JSON Schema
@@ -17,29 +19,32 @@ A reusable API Testing Automation Framework built using **Python**, **Requests**
 
 ## Features
 
+- Reusable API Client
 - Automated REST API Testing
 - GET Request Testing
 - POST Request Testing
 - PUT Request Testing
 - PATCH Request Testing
 - DELETE Request Testing
+- Positive & Negative Test Scenarios
+- Parameterized Tests
 - Status Code Validation
 - Response Header Validation
 - Response Body Validation
 - Response Time Validation
 - JSON Schema Validation
-- HTML Test Report Generation
-- Reusable API Client
-- Pytest Fixtures
+- HTML Report Generation
 - Logging Support
+- Pytest Fixtures
+- External Test Data Management
 - Centralized Configuration
 
 ---
 
 ## Project Structure
 
-```
-API-Testing-Framework/
+```text
+api-testing-framework/
 │
 ├── tests/
 │   ├── conftest.py
@@ -50,7 +55,11 @@ API-Testing-Framework/
 │   ├── test_delete_users.py
 │   └── test_schema_validation.py
 │
+├── test_data/
+│   └── payloads.json
+│
 ├── utils/
+│   ├── __init__.py
 │   ├── api_client.py
 │   ├── config.py
 │   └── logger.py
@@ -64,37 +73,41 @@ API-Testing-Framework/
 │
 ├── requirements.txt
 ├── pytest.ini
-└── README.md
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## API Used
+## Public API Used
 
-JSONPlaceholder
+**JSONPlaceholder**
 
-https://jsonplaceholder.typicode.com
+https://jsonplaceholder.typicode.com/
 
 ---
 
 ## Test Coverage
 
-| API Method | Status |
-|------------|--------|
-| GET | ✅ |
-| POST | ✅ |
-| PUT | ✅ |
-| PATCH | ✅ |
-| DELETE | ✅ |
+| HTTP Method | Test Scenarios |
+|-------------|----------------|
+| GET | Get all users, Get single user, Multiple users, Invalid user |
+| POST | Valid payload, Empty payload, Response validation |
+| PUT | Update resource, Response validation |
+| PATCH | Partial update, Modified field validation |
+| DELETE | Delete resource, Response validation |
+| JSON Schema | Schema validation, Required fields validation |
+
+**Total Automated Test Cases:** **17**
 
 ---
 
 ## Validations Performed
 
-- HTTP Status Code
-- Response Headers
-- Response Body
-- Response Time
+- HTTP Status Code Validation
+- Response Header Validation
+- Response Body Validation
+- Response Time Validation
 - JSON Schema Validation
 
 ---
@@ -107,27 +120,25 @@ Clone the repository
 git clone <repository-url>
 ```
 
-Move to project directory
+Navigate to the project
 
 ```bash
-cd API-Testing-Framework
+cd api-testing-framework
 ```
 
-Create Virtual Environment
+Create a virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate Virtual Environment
-
-Windows
+Activate the virtual environment (Windows)
 
 ```bash
 venv\Scripts\activate
 ```
 
-Install Dependencies
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -135,9 +146,9 @@ pip install -r requirements.txt
 
 ---
 
-## Execute Tests
+## Run Tests
 
-Run all tests
+Execute all test cases
 
 ```bash
 pytest -v
@@ -153,18 +164,19 @@ pytest --html=reports/report.html --self-contained-html
 
 ## Sample Output
 
-```
-============================
-6 Tests Collected
-6 Tests Passed
-============================
+```text
+=============================
+collected 17 items
+
+17 passed
+=============================
 ```
 
 ---
 
 ## Reports
 
-- HTML Report (`reports/report.html`)
+- HTML Test Report (`reports/report.html`)
 - Execution Log (`reports/api_test.log`)
 
 ---
@@ -172,15 +184,17 @@ pytest --html=reports/report.html --self-contained-html
 ## Future Enhancements
 
 - Authentication Testing
-- Data-Driven Testing
-- Environment Variables
-- CI/CD Integration using GitHub Actions
+- Data-Driven Testing using Excel/CSV
+- Environment Variables (.env)
+- GitHub Actions CI/CD
 - Docker Support
-- API Mocking
 - Parallel Test Execution
+- API Mocking
 
 ---
 
 ## Author
 
 **Bhavyata Suthar**
+
+Aspiring QA Engineer with hands-on experience in Manual Testing, API Testing, Security Testing, and Python Automation.
